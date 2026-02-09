@@ -6,6 +6,20 @@ lr = 0.01
 iterations = 1000
 
 def gen_data(n_samples=100, n_features=1, noise=5.0, random_seed=42):
+    """
+    Generates synthetic data for testing purposes
+    
+    :param n_samples: Number of data entries (rows)
+    :param n_features: Number of features (columns)
+    :param noise: Noise added to the output for the model to decipher
+    :param random_seed: Reproduce results
+
+    Returns:
+    X: Input features with dimension (n_samples, n_features)
+    y: True labels of (n_samples)
+    true_w: Actual weight (verification)
+    true_b: Actual bias (verification)
+    """
     np.random.seed(random_seed)
     X = 2.0 * np.random.randn(n_samples, n_features)
     true_w = np.random.randn(n_features) * 10
@@ -139,3 +153,4 @@ if __name__ == "__main__":
     plt.legend()
     plt.tight_layout()
     plt.show()
+
